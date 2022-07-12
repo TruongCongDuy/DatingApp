@@ -52,7 +52,7 @@ namespace API.Data.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "KnowAs",
+                name: "KnownAs",
                 table: "Users",
                 type: "TEXT",
                 nullable: true);
@@ -71,7 +71,7 @@ namespace API.Data.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "photos",
+                name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -83,9 +83,9 @@ namespace API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_photos", x => x.Id);
+                    table.PrimaryKey("PK_Photos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_photos_Users_AppUserId",
+                        name: "FK_Photos_Users_AppUserId",
                         column: x => x.AppUserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -93,15 +93,15 @@ namespace API.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_photos_AppUserId",
-                table: "photos",
+                name: "IX_Photos_AppUserId",
+                table: "Photos",
                 column: "AppUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "photos");
+                name: "Photos");
 
             migrationBuilder.DropColumn(
                 name: "City",
@@ -132,7 +132,7 @@ namespace API.Data.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "KnowAs",
+                name: "KnownAs",
                 table: "Users");
 
             migrationBuilder.DropColumn(
